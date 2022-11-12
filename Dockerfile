@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Paperspace Dockerfile for FastAPI Deployment image
-# Paperspace image is located in Dockerhub registry: paperspace/fastapi-deployment
+# Paperspace image is located in Docker Hub repository: paperspace/fastapi-deployment
 
 
 # ==================================================================
