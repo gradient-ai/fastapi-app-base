@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Paperspace Dockerfile for FastAPI Deployment image
-# Paperspace image is located in Docker Hub repository: paperspace/fastapi-deployment
+# Paperspace image is located in Docker Hub repository: paperspace/fastapi-app-base
 
 
 # ==================================================================
@@ -62,22 +62,22 @@
 
     #Based on https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa
 
-    # Adding repository for python3.9
+    # Adding repository for python3.10
     RUN add-apt-repository ppa:deadsnakes/ppa -y && \
 
-    # Installing python3.9
+    # Installing python3.10
         $APT_INSTALL \
-        python3.9 \
-        python3.9-dev \
-        python3.9-venv \
+        python3.10 \
+        python3.10-dev \
+        python3.10-venv \
         python3-distutils-extra
 
-    # Add symlink so python and python3 commands use same python3.9 executable
-    RUN ln -s /usr/bin/python3.9 /usr/local/bin/python3 && \
-        ln -s /usr/bin/python3.9 /usr/local/bin/python
+    # Add symlink so python and python3 commands use same python3.10 executable
+    RUN ln -s /usr/bin/python3.10 /usr/local/bin/python3 && \
+        ln -s /usr/bin/python3.10 /usr/local/bin/python
 
     # Installing pip
-    RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.9
+    RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10
     ENV PATH=$PATH:/root/.local/bin
 
 
@@ -113,5 +113,5 @@
 # ------------------------------------------------------------------
 
     RUN $PIP_INSTALL \
-        fastapi==0.85.2 \
+        fastapi==0.97.0 \
         uvicorn==0.19.0
